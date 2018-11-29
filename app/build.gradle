@@ -4,8 +4,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+Properties properties = new Properties()
+properties.load(project.rootProject.file('keyStore.properties').newDataInputStream())
 android {
+    signingConfigs {
+        config_release {
+            keyAlias properties.getProperty("keystore.alias")
+            keyPassword properties.getProperty("keystore.password")
+            storeFile file(properties.getProperty("keystore.path"))
+            storePassword properties.getProperty("keystore.alias_password")
+        }
+    }
     compileSdkVersion ext_android.compileSdkVersion
     defaultConfig {
         applicationId ext_android.applicationId
@@ -18,9 +27,15 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             zipAlignEnabled=true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config_release
+        }
+        debug {
+            signingConfig signingConfigs.config_release
+            minifyEnabled false
+            zipAlignEnabled true
         }
     }
     lintOptions {

@@ -24,3 +24,18 @@
 -keep class * implements Android.os.Parcelable { # 保持Parcelable不被混淆
     public static final Android.os.Parcelable$Creator *;
 }
+#Rxjava RxAndroid
+-dontwarn rx.*
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQuene*Field*{
+long producerIndex;
+long consumerIndex;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+rx.internal.util.atomic.LinkedQueueNode producerNode;
+rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
