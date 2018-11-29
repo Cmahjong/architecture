@@ -38,6 +38,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation ext_dependencies.kotlin_jdk
     implementation ext_dependencies.appcompat
+    implementation ext_dependencies.lifecycle_extensions
     implementation ext_dependencies.constraint
     implementation ext_dependencies.multidex
     implementation ext_dependencies.rxjava
@@ -47,7 +48,6 @@ dependencies {
     implementation ext_dependencies.lifecycle
     implementation ext_dependencies.lifecycle_jdk
     implementation ext_dependencies.lifecycle_kotlin
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1-alpha01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1-alpha01'
