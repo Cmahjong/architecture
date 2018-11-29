@@ -7,5 +7,5 @@ import androidx.fragment.app.Fragment
  * time: 2018/11/29
  * @author yinYin
  */
-open class BaseFragment: androidx.fragment.app.Fragment() {
+open class BaseFragment:Fragment() {
 }

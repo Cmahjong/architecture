@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep public class * extends com.yj.demo.base.BaseFragment
+-keep public class * extends com.yj.demo.base.BaseActivity
+-keep class * implements Android.os.Parcelable { # 保持Parcelable不被混淆
+    public static final Android.os.Parcelable$Creator *;
+}

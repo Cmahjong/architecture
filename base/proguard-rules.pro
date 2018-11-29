@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#保持所有的AppCompatActivity的继承类不被混淆
+-keep public class * extends androidx.appcompat.app.AppCompatActivity
+#保持所有的Fragment的继承类不被混淆
+-keep public class * extends androidx.fragment.app.Fragment
+# 保持Parcelable不被混淆
+-keep class * implements Android.os.Parcelable {
+    public static final Android.os.Parcelable$Creator *;
+}

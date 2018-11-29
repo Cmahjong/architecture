@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.yj.demo.architectureapplication.R
 import com.yj.demo.architectureapplication.util.onClick
+import com.yj.demo.base.BaseFragment
 import com.yj.demo.service.response.WeatherResponse
 import kotlinx.android.synthetic.main.mine_fragment.*
 
-class MineFragment : Fragment() {
+class MineFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = MineFragment()
